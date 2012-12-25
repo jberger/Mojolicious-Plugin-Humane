@@ -18,5 +18,5 @@ provides:
     version: 0.01
 requires:
   File::ShareDir: 1.00
-  Mojolicious: 3.12
+  Mojolicious: 3.00
 version: 0.01

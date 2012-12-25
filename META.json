@@ -22,7 +22,7 @@
       "runtime" : {
          "requires" : {
             "File::ShareDir" : "1.00",
-            "Mojolicious" : "3.12"
+            "Mojolicious" : "3.00"
          }
       }
    },
