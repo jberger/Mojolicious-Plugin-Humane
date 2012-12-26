@@ -90,12 +90,11 @@ sub register {
     my @messages = $c->humane_messages;
     return unless @messages;
 
-    my $humane = $c->humane;
-    my $dom    = $c->res->dom;
-    my $head   = $dom->at('head') or return;
+    my $dom  = $c->res->dom;
+    my $head = $dom->at('head') or return;
 
     my $append = $c->render(
-      $humane->template,
+      $c->humane->template,
       partial => 1,
     );
     $head->append_content( $append );
