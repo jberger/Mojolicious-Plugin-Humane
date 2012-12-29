@@ -6,7 +6,6 @@ use Test::Mojo;
 {
   my $plugin = plugin 'Humane';
   ok( -e $plugin->static_path, 'static_path exists' );
-  ok( -e $plugin->template_path, 'template_path exists' );
 
   my $theme = $plugin->theme;
   my $found = grep { $_ eq $theme } $plugin->all_themes;

@@ -6,7 +6,6 @@ use Test::Mojo;
 {
   my $plugin = plugin 'Humane' => auto => 0;
   ok( -e $plugin->static_path, 'static_path exists' );
-  ok( -e $plugin->template_path, 'template_path exists' );
 
   my $theme = $plugin->theme;
   my $found = grep { $_ eq $theme } $plugin->all_themes;
@@ -58,7 +57,7 @@ __DATA__
 <!DOCTYPE html>
 <html>
   <head>
-    %= include humane->template
+    %= humane_include
   </head>
   <body>
     Testing humane.js plugin for Mojolicious

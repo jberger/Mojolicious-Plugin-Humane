@@ -5,7 +5,7 @@ use File::Basename 'dirname';
 use File::Spec;
 use File::ShareDir 'dist_dir';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;
 
 has 'humane_version' => '3.0.5';
@@ -17,11 +17,17 @@ has 'static_path' => sub {
   $self->path('humane-' . $self->humane_version);
 };
 
-has 'template' => 'humane';
-
-has 'template_path' => sub {
-  shift->path('templates');
-};
+has 'template' => <<'END';
+% my $theme = humane->theme;
+%= javascript 'humane.min.js'
+%= stylesheet "$theme.css"
+%= javascript begin
+  humane.baseCls = 'humane-<%= $theme %>';
+  % foreach my $message ( humane_messages ) {
+    humane.log( "<%= $message %>" );
+  % }
+%= end
+END
 
 has 'theme' => 'libnotify';
 
@@ -35,7 +41,7 @@ sub path {
   my $share = File::Spec->catdir( dist_dir('Mojolicious-Plugin-Humane'), $folder );
   return $share if -d $share;
 
-  die "Cannot find static files. Tried '$local' and '$share'.\n";
+  die "Cannot find files. Tried '$local' and '$share'.\n";
 }
 
 sub register {
@@ -45,8 +51,7 @@ sub register {
   $conf{auto} //= 1;      #/# highlight fix
 
   # Append static to directories
-  push @{$app->static->paths},   $plugin->static_path;
-  push @{$app->renderer->paths}, $plugin->template_path;
+  push @{$app->static->paths}, $plugin->static_path;
 
   $app->helper( humane => sub { $plugin } );
 
@@ -76,6 +81,16 @@ sub register {
     return $flash;
   });
 
+  $app->helper( humane_include => sub {
+    my $self = shift;
+    my $humane = $self->humane;
+    my $template = $humane->template;
+    $self->render( 
+      inline => $template,
+      partial => 1,
+    );
+  });
+
   $app->helper( humane_messages => sub {
     my $self = shift;
     my @messages = (
@@ -93,10 +108,7 @@ sub register {
     my $dom  = $c->res->dom;
     my $head = $dom->at('head') or return;
 
-    my $append = $c->render(
-      $c->humane->template,
-      partial => 1,
-    );
+    my $append = $c->humane_include;
     $head->append_content( $append );
     $c->tx->res->body( $dom->to_xml );
   } ) if $conf{auto};

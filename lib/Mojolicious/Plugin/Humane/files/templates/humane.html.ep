@@ -1,9 +1,0 @@
-% my $theme = humane->theme;
-%= javascript 'humane.min.js'
-%= stylesheet "$theme.css"
-%= javascript begin
-  humane.baseCls = 'humane-<%= $theme %>';
-  % foreach my $message ( humane_messages ) {
-    humane.log( "<%= $message %>" );
-  % }
-%= end
