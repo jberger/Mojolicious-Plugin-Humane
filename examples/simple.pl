@@ -4,7 +4,7 @@ use Mojolicious::Lite;
 
 BEGIN {
   for ( qw{ lib ../lib } ) {
-    push @INC, $_ if -d;
+    unshift @INC, $_ if -d;
   }
 }
 
