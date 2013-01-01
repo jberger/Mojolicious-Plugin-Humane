@@ -13,6 +13,15 @@ my $build = Module::Build->new(
     'Module::Build' => 0.38,
   },
   share_dir => 'lib/Mojolicious/Plugin/Humane/files',
+  meta_merge => {
+    resources  => {
+      repository => "http://github.com/jberger/Mojolicious-Plugin-Humane",
+      bugtracker => "http://github.com/jberger/Mojolicious-Plugin-Humane/issues",
+    },
+    no_index => {
+      file      => [ 'README.pod' ],
+    },
+  }
 );
 
 $build->create_build_script;
