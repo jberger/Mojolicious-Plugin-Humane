@@ -13,6 +13,11 @@
       "version" : "2"
    },
    "name" : "Mojolicious-Plugin-Humane",
+   "no_index" : {
+      "file" : [
+         "README.pod"
+      ]
+   },
    "prereqs" : {
       "configure" : {
          "requires" : {
@@ -33,5 +38,13 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "http://github.com/jberger/Mojolicious-Plugin-Humane/issues"
+      },
+      "repository" : {
+         "url" : "http://github.com/jberger/Mojolicious-Plugin-Humane"
+      }
+   },
    "version" : "0.02"
 }
