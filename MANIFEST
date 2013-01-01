@@ -8,7 +8,6 @@ lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/humane.min.js
 lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/jackedup.css
 lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/libnotify.css
 lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/original.css
-lib/Mojolicious/Plugin/Humane/files/templates/humane.html.ep
 MANIFEST			This list of files
 META.json
 META.yml

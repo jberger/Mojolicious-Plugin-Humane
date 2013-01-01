@@ -29,9 +29,9 @@
    "provides" : {
       "Mojolicious::Plugin::Humane" : {
          "file" : "lib/Mojolicious/Plugin/Humane.pm",
-         "version" : "0.01"
+         "version" : "0.02"
       }
    },
    "release_status" : "stable",
-   "version" : "0.01"
+   "version" : "0.02"
 }

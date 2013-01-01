@@ -21,7 +21,7 @@ Mojolicious::Plugin::Humane - Mojolicious integration for humane.js
   ...
   __DATA__
   ...
-  %= include humane->template
+  %= humane_include
 
 =head1 DESCRIPTION
 
@@ -46,11 +46,7 @@ The default is C<< $plugin->path('humane-' . $self->humane_version); >>.
 
 =head2 template 
 
-The name of the template to be used. Although this allows the user to supply their own template, it is more likely useful for passing to C<include> when the C<auto> feature is turned off. The default is C<humane>.
-
-=head2 template_path
-
-Path containing the template. The default is C<< $plugin->path('templates'); >>.
+The text of the template to be used. Although this allows the user to supply their own template, it is more useful just for internal storage.
 
 =head2 theme
 
@@ -104,7 +100,11 @@ Holds the instance of the plugin.
 
 Take a message or list of messages and adds them to the stack of messages to be rendered during the current or next rendering respectively. Returns an array reference of all the buffered messages in that stack. May be called without argument to get the stack while not adding messages. 
 
-Note that each stack is rendered first-in first-out, however all flashed messages are shown before stashed messages. 
+Note that each stack is rendered first-in first-out, however all flashed messages are shown before stashed messages.
+
+=head2 C<humane_include>
+
+Behaves like C<include> inserting the template needed to render the messages. You need to use this when setting C<< auto => 0 >>.
 
 =head2 C<humane_messages>
 
@@ -126,7 +126,7 @@ Joel Berger, E<lt>joel.a.berger@gmail.comE<gt>
 
 Mojolicious::Plugin::Humane is
 
-Copyright (C) 2012 by Joel Berger
+Copyright (C) 2013 by Joel Berger
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

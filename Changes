@@ -1,5 +1,10 @@
 Revision history for Perl module Mojolicious::Plugin::Humane.
 
+0.02  January 1, 2013
+	- Template is stored in an attribute, rendered inline
+		- Added humane_include helper
+		- Removed renderer path changes
+
 0.01  December 25, 2012
 	- Initial release
 	- Merry Christmas!
