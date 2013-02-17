@@ -18,11 +18,11 @@ no_index:
 provides:
   Mojolicious::Plugin::Humane:
     file: lib/Mojolicious/Plugin/Humane.pm
-    version: 0.02
+    version: 0.03
 requires:
   File::ShareDir: 1.00
   Mojolicious: 3.00
 resources:
   bugtracker: http://github.com/jberger/Mojolicious-Plugin-Humane/issues
   repository: http://github.com/jberger/Mojolicious-Plugin-Humane
-version: 0.02
+version: 0.03

@@ -2,12 +2,13 @@ Build.PL
 Changes
 examples/simple.pl
 lib/Mojolicious/Plugin/Humane.pm
-lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/bigbox.css
-lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/boldlight.css
-lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/humane.min.js
-lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/jackedup.css
-lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/libnotify.css
-lib/Mojolicious/Plugin/Humane/files/humane-3.0.5/original.css
+lib/Mojolicious/Plugin/Humane/files/humane-3.0.6/bigbox.css
+lib/Mojolicious/Plugin/Humane/files/humane-3.0.6/boldlight.css
+lib/Mojolicious/Plugin/Humane/files/humane-3.0.6/humane.min.js
+lib/Mojolicious/Plugin/Humane/files/humane-3.0.6/jackedup.css
+lib/Mojolicious/Plugin/Humane/files/humane-3.0.6/libnotify.css
+lib/Mojolicious/Plugin/Humane/files/humane-3.0.6/original.css
+lib/Mojolicious/Plugin/Humane/files/humane-3.0.6/readme.md
 MANIFEST			This list of files
 META.json
 META.yml
