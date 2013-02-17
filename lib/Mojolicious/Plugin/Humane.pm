@@ -5,7 +5,7 @@ use File::Basename 'dirname';
 use File::Spec;
 use File::ShareDir 'dist_dir';
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 $VERSION = eval $VERSION;
 
 has 'humane_version' => '3.0.5';
@@ -19,8 +19,8 @@ has 'static_path' => sub {
 
 has 'template' => <<'END';
 % my $theme = humane->theme;
-%= javascript 'humane.min.js'
-%= stylesheet "$theme.css"
+%= javascript '/humane.min.js'
+%= stylesheet "/$theme.css"
 %= javascript begin
   humane.baseCls = 'humane-<%= $theme %>';
   % foreach my $message ( humane_messages ) {
