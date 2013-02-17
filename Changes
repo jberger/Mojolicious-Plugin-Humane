@@ -2,7 +2,7 @@ Revision history for Perl module Mojolicious::Plugin::Humane.
 
 0.03  February 16, 2013
 	- Fixed template
-	- Included humane version 3.0.6, now the default
+	- Update humane version 3.0.6
 
 0.02  January 1, 2013
 	- Template is stored in an attribute, rendered inline
