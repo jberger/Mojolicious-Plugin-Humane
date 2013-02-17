@@ -33,7 +33,9 @@ By default the template needed to render the messages is injected only if needed
 
 =head2 humane_version 
 
-Version of humane.js (to be) loaded. Defaults to the highest bundled version.
+Version of humane.js (to be) loaded. Defaults to the highest bundled version. Currently version 3.0.6 is bundled.
+
+In future, non-breaking releases will be silently upgraded, while breaking versions will be kept and left at the highest version that had been bundled.
 
 =head2 key
 
