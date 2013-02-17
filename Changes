@@ -1,5 +1,8 @@
 Revision history for Perl module Mojolicious::Plugin::Humane.
 
+0.04  February 16, 2013
+	- Bundled a non-broken version of humane
+
 0.03  February 16, 2013
 	- Fixed template
 	- Update humane version 3.0.6

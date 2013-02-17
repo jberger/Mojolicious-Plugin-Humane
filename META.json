@@ -34,7 +34,7 @@
    "provides" : {
       "Mojolicious::Plugin::Humane" : {
          "file" : "lib/Mojolicious/Plugin/Humane.pm",
-         "version" : "0.03"
+         "version" : "0.04"
       }
    },
    "release_status" : "stable",
@@ -46,5 +46,5 @@
          "url" : "http://github.com/jberger/Mojolicious-Plugin-Humane"
       }
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
