@@ -8,7 +8,7 @@ use File::ShareDir 'dist_dir';
 our $VERSION = '0.03';
 $VERSION = eval $VERSION;
 
-has 'humane_version' => '3.0.5';
+has 'humane_version' => '3.0.6';
 
 has 'key' => '_humane';
 
@@ -161,7 +161,7 @@ By default the template needed to render the messages is injected only if needed
 
 =head2 humane_version 
 
-Version of humane.js (to be) loaded. Defaults to the highest bundled version.
+Version of humane.js (to be) loaded. Defaults to the highest bundled version. Currently 3.0.6. 
 
 =head2 key
 
