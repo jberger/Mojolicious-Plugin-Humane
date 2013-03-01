@@ -1,33 +1,21 @@
 package Mojolicious::Plugin::Humane;
 use Mojo::Base 'Mojolicious::Plugin';
 
-use File::Basename 'dirname';
 use File::Spec;
-use File::ShareDir 'dist_dir';
+use File::Basename ();
+use File::ShareDir ();
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 $VERSION = eval $VERSION;
 
 has 'humane_version' => '3.0.6';
-
-has 'key' => '_humane';
 
 has 'static_path' => sub {
   my $self = shift;
   $self->path('humane-' . $self->humane_version);
 };
 
-has 'template' => <<'END';
-% my $theme = humane->theme;
-%= javascript '/humane.min.js'
-%= stylesheet "/$theme.css"
-%= javascript begin
-  humane.baseCls = 'humane-<%= $theme %>';
-  % foreach my $message ( humane_messages ) {
-    humane.log( "<%= $message %>" );
-  % }
-%= end
-END
+has 'template' => 'humane_template';
 
 has 'theme' => 'libnotify';
 
@@ -35,10 +23,10 @@ sub path {
   my $self   = shift;
   my $folder = shift;
 
-  my $local = File::Spec->catdir( dirname(__FILE__), 'Humane', 'files', $folder );
+  my $local = File::Spec->catdir( File::Basename::dirname(__FILE__), 'Humane', 'files', $folder );
   return $local if -d $local;
 
-  my $share = File::Spec->catdir( dist_dir('Mojolicious-Plugin-Humane'), $folder );
+  my $share = File::Spec->catdir( File::ShareDir::dist_dir('Mojolicious-Plugin-Humane'), $folder );
   return $share if -d $share;
 
   die "Cannot find files. Tried '$local' and '$share'.\n";
@@ -52,12 +40,13 @@ sub register {
 
   # Append static to directories
   push @{$app->static->paths}, $plugin->static_path;
+  push @{$app->renderer->classes}, __PACKAGE__;
 
   $app->helper( humane => sub { $plugin } );
 
   $app->helper( humane_stash => sub {
     my $self  = shift;
-    my $key   = $self->humane->key;
+    my $key   = 'humane.stash';
     my $stash = $self->stash($key) || [];
 
     if ( @_ ) {
@@ -70,7 +59,7 @@ sub register {
 
   $app->helper( humane_flash => sub {
     my $self  = shift;
-    my $key   = $self->humane->key;
+    my $key   = 'humane.flash';
     my $flash = $self->flash($key) || [];
 
     if ( @_ ) {
@@ -83,11 +72,9 @@ sub register {
 
   $app->helper( humane_include => sub {
     my $self = shift;
-    my $humane = $self->humane;
-    my $template = $humane->template;
     $self->render( 
-      inline => $template,
-      partial => 1,
+      template => $self->humane->template,
+      partial  => 1,
     );
   });
 
@@ -124,6 +111,22 @@ sub all_themes {
 }
 
 1;
+
+__DATA__
+
+@@ humane_template.html.ep
+
+% my $theme = humane->theme;
+%= javascript '/humane.min.js'
+%= stylesheet "/$theme.css"
+%= javascript begin
+  humane.baseCls = 'humane-<%= $theme %>';
+  % foreach my $message ( humane_messages ) {
+    humane.log( "<%= $message %>" );
+  % }
+%= end
+
+
 __END__
 
 =head1 NAME
@@ -157,6 +160,8 @@ L<Mojolicious::Plugin::Humane> is a L<Mojolicious> plugin allowing easy use of h
 
 By default the template needed to render the messages is injected only if needed. For infrequent use, this is less costly overall and less to think about. If messages are to be used frequently or perhaps humane.js is to also be used without reloading the page (via websockets perhaps) then turn the C<auto> feature off and add the template to your layout manually.
 
+Internally this plugin uses the (non-localized) stash keys C<humane.stash> and C<humane.flash>. Other stash keys starting with C<human.> are reserved for future use should be avoided.
+
 =head1 ATTRIBUTES
 
 =head2 humane_version 
@@ -165,10 +170,6 @@ Version of humane.js (to be) loaded. Defaults to the highest bundled version. Cu
 
 In future, non-breaking releases will be silently upgraded, while breaking versions will be kept and left at the highest version that had been bundled.
 
-=head2 key
-
-The stash and flash key used by the plugin to hold the messages. Other keys beginning with this key may be used in the future and should be avoided. Default is C<_humane>.
-
 =head2 static_path
 
 The path to the folder containing the bundled version of humane to be used. This path is added to the static rendering path.
@@ -176,7 +177,7 @@ The default is C<< $plugin->path('humane-' . $self->humane_version); >>.
 
 =head2 template 
 
-The text of the template to be used. Although this allows the user to supply their own template, it is more useful just for internal storage.
+The name of the template to be used. This allows the user to supply their own template name if desired.
 
 =head2 theme
 
