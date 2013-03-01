@@ -6,7 +6,7 @@ build_requires: {}
 configure_requires:
   Module::Build: 0.38
 dynamic_config: 1
-generated_by: 'Module::Build version 0.4, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Module::Build version 0.4003, CPAN::Meta::Converter version 2.120630'
 license: unknown
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -18,11 +18,11 @@ no_index:
 provides:
   Mojolicious::Plugin::Humane:
     file: lib/Mojolicious/Plugin/Humane.pm
-    version: 0.04
+    version: 0.05
 requires:
   File::ShareDir: 1.00
   Mojolicious: 3.00
 resources:
   bugtracker: http://github.com/jberger/Mojolicious-Plugin-Humane/issues
   repository: http://github.com/jberger/Mojolicious-Plugin-Humane
-version: 0.04
+version: 0.05

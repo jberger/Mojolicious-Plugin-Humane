@@ -2,7 +2,7 @@ Revision history for Perl module Mojolicious::Plugin::Humane.
 
 0.05  March 1, 2013
 	- Removed key attribute, use humane. for key prefix now (reserved)
-	- Template is now stored in __PACAKGE__ DATA rather than inline rendered
+	- Template is now stored in __PACAKGE__::__DATA__ rather than inline rendered
 
 0.04  February 16, 2013
 	- Bundled a non-broken version of humane
