@@ -160,7 +160,7 @@ L<Mojolicious::Plugin::Humane> is a L<Mojolicious> plugin allowing easy use of h
 
 By default the template needed to render the messages is injected only if needed. For infrequent use, this is less costly overall and less to think about. If messages are to be used frequently or perhaps humane.js is to also be used without reloading the page (via websockets perhaps) then turn the C<auto> feature off and add the template to your layout manually.
 
-Internally this plugin uses the (non-localized) stash keys C<humane.stash> and C<humane.flash>. Other stash keys starting with C<human.> are reserved for future use should be avoided.
+Internally this plugin uses the (non-localized) stash keys C<humane.stash> and C<humane.flash>. Other stash keys starting with C<humane.> are reserved for future use should be avoided.
 
 =head1 ATTRIBUTES
 
