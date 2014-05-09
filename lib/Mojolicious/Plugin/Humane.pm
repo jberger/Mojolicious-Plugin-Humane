@@ -97,7 +97,7 @@ sub register {
 
     my $append = $c->humane_include;
     $head->append_content( $append );
-    $c->tx->res->body( $dom->to_xml );
+    $c->tx->res->body( $dom->to_string );
   } ) if $conf{auto};
 
   return $plugin;
