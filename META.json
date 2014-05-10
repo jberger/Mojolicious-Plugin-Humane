@@ -4,7 +4,7 @@
       "Joel A. Berger <joel.a.berger@gmail.com>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120630",
+   "generated_by" : "Module::Build version 0.4203",
    "license" : [
       "unknown"
    ],
@@ -27,14 +27,14 @@
       "runtime" : {
          "requires" : {
             "File::ShareDir" : "1.00",
-            "Mojolicious" : "3.00"
+            "Mojolicious" : "4.77"
          }
       }
    },
    "provides" : {
       "Mojolicious::Plugin::Humane" : {
          "file" : "lib/Mojolicious/Plugin/Humane.pm",
-         "version" : "0.05"
+         "version" : "0.06"
       }
    },
    "release_status" : "stable",
@@ -46,5 +46,5 @@
          "url" : "http://github.com/jberger/Mojolicious-Plugin-Humane"
       }
    },
-   "version" : "0.05"
+   "version" : "0.06"
 }

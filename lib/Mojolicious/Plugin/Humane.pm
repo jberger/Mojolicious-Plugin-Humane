@@ -5,7 +5,7 @@ use File::Spec;
 use File::Basename ();
 use File::ShareDir ();
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 $VERSION = eval $VERSION;
 
 has 'humane_version' => '3.2.0';
