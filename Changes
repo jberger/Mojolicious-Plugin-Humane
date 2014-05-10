@@ -3,6 +3,7 @@ Revision history for Perl module Mojolicious::Plugin::Humane.
 0.06 2014-05-10
   - Changes for Mojolicious v4.77 (keedi++)
     - Bumped Mojolicious version to v4.77
+  - Upgraded Humane to version 3.2.0
 
 0.05 2013-03-01
 	- Removed key attribute, use humane. for key prefix now (reserved)
@@ -13,7 +14,7 @@ Revision history for Perl module Mojolicious::Plugin::Humane.
 
 0.03 2013-02-16
 	- Fixed template
-	- Update humane version 3.0.6
+	- Update Humane to version 3.0.6
 
 0.02 2013-01-01
 	- Template is stored in an attribute, rendered inline

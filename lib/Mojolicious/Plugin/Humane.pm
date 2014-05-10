@@ -8,7 +8,7 @@ use File::ShareDir ();
 our $VERSION = '0.05';
 $VERSION = eval $VERSION;
 
-has 'humane_version' => '3.0.6';
+has 'humane_version' => '3.2.0';
 
 has 'static_path' => sub {
   my $self = shift;
@@ -166,7 +166,7 @@ Internally this plugin uses the (non-localized) stash keys C<humane.stash> and C
 
 =head2 humane_version 
 
-Version of humane.js (to be) loaded. Defaults to the highest bundled version. Currently version 3.0.6 is bundled.
+Version of humane.js (to be) loaded. Defaults to the highest bundled version. Currently version 3.2.0 is bundled.
 
 In future, non-breaking releases will be silently upgraded, while breaking versions will be kept and left at the highest version that had been bundled.
 
