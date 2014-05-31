@@ -5,7 +5,7 @@ use File::Spec;
 use File::Basename ();
 use File::ShareDir ();
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 $VERSION = eval $VERSION;
 
 has 'humane_version' => '3.2.0';
@@ -72,9 +72,8 @@ sub register {
 
   $app->helper( humane_include => sub {
     my $self = shift;
-    $self->render( 
+    $self->include( #TODO use render_to_string once Mojo 5.00 is required 
       template => $self->humane->template,
-      partial  => 1,
     );
   });
 

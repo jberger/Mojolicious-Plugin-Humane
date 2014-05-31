@@ -1,5 +1,8 @@
 Revision history for Perl module Mojolicious::Plugin::Humane.
 
+0.07 2017-05-31
+  - Improved compatibility with Mojolicious 5.00 (no bump required)
+
 0.06 2014-05-10
   - Changes for Mojolicious v4.77 (keedi++)
     - Bumped Mojolicious version to v4.77
