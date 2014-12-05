@@ -144,7 +144,8 @@ Mojolicious::Plugin::Humane - Mojolicious integration for humane.js
   get '/' => sub {
     my $c = shift;
     $c->humane_stash('Welcome back!');
-  ...
+    ...
+  }
 
   # Without 'auto' feature
   plugin 'Humane', auto => 0;
