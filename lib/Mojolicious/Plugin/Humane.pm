@@ -5,10 +5,10 @@ use File::Spec;
 use File::Basename ();
 use File::ShareDir ();
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 $VERSION = eval $VERSION;
 
-has 'humane_version' => '3.2.0';
+has 'humane_version' => '3.2.2';
 
 has 'static_path' => sub {
   my $self = shift;
